@@ -23,12 +23,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSM-SY-dkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="72"/>
+            <point key="canvasLocation" x="-175" y="72"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TpW-0A-252">
             <objects>
-                <viewController id="1Qy-8j-KbR" sceneMemberID="viewController">
+                <viewController id="1Qy-8j-KbR" customClass="ViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffg-X1-JUA"/>
                         <viewControllerLayoutGuide type="bottom" id="chG-lS-axY"/>
