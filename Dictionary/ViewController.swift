@@ -58,6 +58,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         overlayView.isOpaque = false
         overlayView.isUserInteractionEnabled = true
         overlayView.backgroundColor = UIColor.clear
+        
+        //create the "how it works" label
+        let label = UILabel.init()
+        label.text = "Help"
+        label.font = UIFont.init(name: "AppleSDGothicNeo-Light", size: 25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        overlayView.addSubview(label)
+        
+        label.textColor = UIColor.white
+       
+        label.topAnchor.constraint(equalTo: overlayView.topAnchor, constant: 20).isActive = true
+        overlayView.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 20).isActive = true
+//        label.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        
         overlayView.addGestureRecognizer(tapGesture)
         self.imagePicker.view.addSubview(overlayView)
         
