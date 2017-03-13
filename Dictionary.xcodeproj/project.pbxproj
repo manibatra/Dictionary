@@ -14,6 +14,7 @@
 		604B1F7F1E73A86300489ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604B1F7D1E73A86300489ECF /* LaunchScreen.storyboard */; };
 		604B1F8A1E73A86300489ECF /* DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F891E73A86300489ECF /* DictionaryTests.swift */; };
 		604B1F951E73A86300489ECF /* DictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F941E73A86300489ECF /* DictionaryUITests.swift */; };
+		604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 604B1FA21E7648BB00489ECF /* libz.1.dylib */; };
 		F6FC94F54475793289D4DCE4 /* libPods-Dictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		604B1F901E73A86300489ECF /* DictionaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DictionaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		604B1F941E73A86300489ECF /* DictionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUITests.swift; sourceTree = "<group>"; };
 		604B1F961E73A86300489ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		604B1FA21E7648BB00489ECF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		7CB0BA44C54B138862F38DFA /* Pods-Dictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.debug.xcconfig"; sourceTree = "<group>"; };
 		80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dictionary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC941F5BE621C4BE72CF70D /* Pods-Dictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */,
 				F6FC94F54475793289D4DCE4 /* libPods-Dictionary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +147,7 @@
 		8DD3F032C826ABEF35F9ADAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				604B1FA21E7648BB00489ECF /* libz.1.dylib */,
 				80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */,
 			);
 			name = Frameworks;
@@ -589,6 +593,7 @@
 				604B1F9B1E73A86300489ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		604B1F9C1E73A86300489ECF /* Build configuration list for PBXNativeTarget "DictionaryTests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +602,7 @@
 				604B1F9E1E73A86300489ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		604B1F9F1E73A86300489ECF /* Build configuration list for PBXNativeTarget "DictionaryUITests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +611,7 @@
 				604B1FA11E73A86300489ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
