@@ -12,6 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sa2-oZ-RJe">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oSM-SY-dkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="20G-HH-BXf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqv-JB-3DX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -21,7 +22,6 @@
                         <segue destination="1Qy-8j-KbR" kind="relationship" relationship="rootViewController" id="7YP-ui-knA"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oSM-SY-dkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-175" y="72"/>
         </scene>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="71.514242878560722"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Word Table View Controller-->
         <scene sceneID="vXG-0u-dIS">
             <objects>
-                <tableViewController id="YFr-vg-0BZ" sceneMemberID="viewController">
+                <tableViewController id="YFr-vg-0BZ" customClass="WordTableViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oxu-o8-SEh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

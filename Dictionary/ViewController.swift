@@ -14,6 +14,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     var boxCenter: CGPoint! //location of the registered tap
     var activityIndicator: UIActivityIndicatorView! //activity indicator to placate user when your code is lazy
     var blockArray: NSArray! //array of blocks recognised by tesseract
+    var transition: Int  = 0 //flag which is set to transition to the table view
 
     
     
@@ -128,8 +129,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         //array of blocks recognised by tesseract
         self.blockArray = tesseract?.recognizedBlocks(by: .word) as NSArray!
         
-        print ("\(tesseract?.recognizedText)")
         removeActivityIndicator()
+
     }
 
     
@@ -175,15 +176,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     
     override func viewDidAppear(_ animated: Bool) {
         
-        self.present(self.imagePicker,
-                     animated: false,
-                     completion: nil )
+        if(self.transition == 0) {
+            self.present(self.imagePicker,
+                         animated: false,
+                         completion: nil )
+        } else {
+            self.transition = 0
+        }
+        
     }
     
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.performSegue(withIdentifier: "recognisedWords", sender: self)
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "recognisedWords") {
+            let wordTableViewController = segue.destination as! WordTableViewController
+            wordTableViewController.blockArray = self.blockArray
+
+        }
     }
     
     
@@ -227,12 +236,12 @@ extension ViewController: UIImagePickerControllerDelegate {
         
         //the box representing the area to be used for OCR by tesseract
         let rectangle = CGRect.init(x: imagePoint.x - 100, y: imagePoint.y - 100, width: 350, height: 200)
+        self.transition = 1
 
         //perform image recognition and dismiss view controller
         dismiss(animated: true, completion: {
-            
             self.performWordRecognition(image: scaledImage, rectangle: rectangle)
-
+            self.performSegue(withIdentifier: "recognisedWords", sender: nil)
         })
     }
     

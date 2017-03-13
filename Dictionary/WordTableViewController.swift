@@ -9,9 +9,17 @@
 import UIKit
 
 class WordTableViewController: UITableViewController {
+    
+    var blockArray: NSArray!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for block in blockArray {
+            
+            print(block)
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
