@@ -12,7 +12,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     
     var imagePicker: UIImagePickerController!     //main camera to take picture of words
     var boxCenter: CGPoint! //location of the registered tap
-    var activityIndicator:UIActivityIndicatorView! //activity indicator to placate user when your code is lazy
+    var activityIndicator: UIActivityIndicatorView! //activity indicator to placate user when your code is lazy
+    var blockArray: NSArray! //array of blocks recognised by tesseract
 
     
     
@@ -124,7 +125,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         tesseract?.rect = rectangle
         tesseract?.recognize()
         
-
+        //array of blocks recognised by tesseract
+        self.blockArray = tesseract?.recognizedBlocks(by: .word) as NSArray!
+        
         print ("\(tesseract?.recognizedText)")
         removeActivityIndicator()
         
