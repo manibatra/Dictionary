@@ -130,7 +130,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         print ("\(tesseract?.recognizedText)")
         removeActivityIndicator()
-        
     }
 
     
@@ -182,6 +181,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     }
     
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.performSegue(withIdentifier: "recognisedWords", sender: self)
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -223,7 +228,7 @@ extension ViewController: UIImagePickerControllerDelegate {
         //the box representing the area to be used for OCR by tesseract
         let rectangle = CGRect.init(x: imagePoint.x - 100, y: imagePoint.y - 100, width: 350, height: 200)
 
-        
+        //perform image recognition and dismiss view controller
         dismiss(animated: true, completion: {
             
             self.performWordRecognition(image: scaledImage, rectangle: rectangle)
