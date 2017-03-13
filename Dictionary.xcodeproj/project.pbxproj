@@ -16,6 +16,7 @@
 		604B1F951E73A86300489ECF /* DictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F941E73A86300489ECF /* DictionaryUITests.swift */; };
 		604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 604B1FA21E7648BB00489ECF /* libz.1.dylib */; };
 		60C878F11E7652AD009F5E64 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 60C878F01E7652AD009F5E64 /* tessdata */; };
+		60C878F31E765CE8009F5E64 /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C878F21E765CE8009F5E64 /* WordTableViewController.swift */; };
 		F6FC94F54475793289D4DCE4 /* libPods-Dictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		604B1FA21E7648BB00489ECF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		604B1FA71E764CF800489ECF /* Dictionary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dictionary-Bridging-Header.h"; sourceTree = "<group>"; };
 		60C878F01E7652AD009F5E64 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		60C878F21E765CE8009F5E64 /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		7CB0BA44C54B138862F38DFA /* Pods-Dictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.debug.xcconfig"; sourceTree = "<group>"; };
 		80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dictionary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC941F5BE621C4BE72CF70D /* Pods-Dictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				60C878F01E7652AD009F5E64 /* tessdata */,
 				604B1F741E73A86200489ECF /* AppDelegate.swift */,
 				604B1F761E73A86200489ECF /* ViewController.swift */,
+				60C878F21E765CE8009F5E64 /* WordTableViewController.swift */,
 				604B1F781E73A86200489ECF /* Main.storyboard */,
 				604B1F7B1E73A86300489ECF /* Assets.xcassets */,
 				604B1F7D1E73A86300489ECF /* LaunchScreen.storyboard */,
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				604B1F771E73A86200489ECF /* ViewController.swift in Sources */,
+				60C878F31E765CE8009F5E64 /* WordTableViewController.swift in Sources */,
 				604B1F751E73A86200489ECF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
