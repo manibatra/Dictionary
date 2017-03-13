@@ -15,6 +15,7 @@
 		604B1F8A1E73A86300489ECF /* DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F891E73A86300489ECF /* DictionaryTests.swift */; };
 		604B1F951E73A86300489ECF /* DictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F941E73A86300489ECF /* DictionaryUITests.swift */; };
 		604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 604B1FA21E7648BB00489ECF /* libz.1.dylib */; };
+		604B1FA51E764B0600489ECF /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 604B1FA41E764B0600489ECF /* tessdata */; };
 		F6FC94F54475793289D4DCE4 /* libPods-Dictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		604B1F941E73A86300489ECF /* DictionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUITests.swift; sourceTree = "<group>"; };
 		604B1F961E73A86300489ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		604B1FA21E7648BB00489ECF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		604B1FA41E764B0600489ECF /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../Downloads/tessdata; sourceTree = "<group>"; };
 		7CB0BA44C54B138862F38DFA /* Pods-Dictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.debug.xcconfig"; sourceTree = "<group>"; };
 		80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dictionary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC941F5BE621C4BE72CF70D /* Pods-Dictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dictionary/Pods-Dictionary.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		604B1F731E73A86200489ECF /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				604B1FA41E764B0600489ECF /* tessdata */,
 				604B1F741E73A86200489ECF /* AppDelegate.swift */,
 				604B1F761E73A86200489ECF /* ViewController.swift */,
 				604B1F781E73A86200489ECF /* Main.storyboard */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				604B1F7F1E73A86300489ECF /* LaunchScreen.storyboard in Resources */,
+				604B1FA51E764B0600489ECF /* tessdata in Resources */,
 				604B1F7C1E73A86300489ECF /* Assets.xcassets in Resources */,
 				604B1F7A1E73A86200489ECF /* Main.storyboard in Resources */,
 			);
@@ -494,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CJ266XH7SM;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Dictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mani.Dictionary;
@@ -508,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CJ266XH7SM;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Dictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mani.Dictionary;
