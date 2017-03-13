@@ -27,7 +27,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
             
             
             self.boxCenter = sender.location(in: self.imagePicker.view)
-            NSLog("hello from : \(boxCenter.x) \(boxCenter.y)")
+//            NSLog("hello from : \(boxCenter.x) \(boxCenter.y)")
             self.imagePicker.takePicture()
             
         }
@@ -109,6 +109,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         return scaledImage!
     }
+    
+    
+    /**
+     * Method name: performWordRecognition
+     * Description: perorms word recognition from the image using tesseract
+     * Parameters: image: UIImage, rectangle: CGRect
+     */
+    func performWordRecognition(image: UIImage, rectangle: CGRect) {
+        
+        let tesseract = G8Tesseract.init(language: "eng")
+
+        tesseract?.image = image
+        tesseract?.rect = rectangle
+        tesseract?.recognize()
+        
+
+        print ("\(tesseract?.recognizedText)")
+        removeActivityIndicator()
+        
+    }
+
     
 
 
@@ -202,6 +223,7 @@ extension ViewController: UIImagePickerControllerDelegate {
         
         dismiss(animated: true, completion: {
             
+            self.performWordRecognition(image: scaledImage, rectangle: rectangle)
 
         })
     }
