@@ -12,6 +12,35 @@ class WordTableViewController: UITableViewController {
     
     var blockArray: NSArray!
     var refinedBlockArray: NSArray!
+    var activityIndicator: UIActivityIndicatorView! //activity indicator to placate user when your code is lazy
+
+    
+    /**
+     * Method name: addActivityIndicator
+     * Description: shows the activity indicator in the view
+     * Parameters:
+     */
+    
+    func addActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    
+    /**
+     * Method name: removeActivityIndicator
+     * Description: removes the activity indicator from the view
+     * Parameters:
+     */
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+    }
+
 
 
     override func viewDidLoad() {
@@ -65,6 +94,23 @@ class WordTableViewController: UITableViewController {
         cell.textLabel?.text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        addActivityIndicator()
+        //getting the word from the selected row and showing the meaning if it is valid
+        let word = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        if ( UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: word!)) {
+            let dictionary = UIReferenceLibraryViewController.init(term: word!)
+            self.present(dictionary, animated: true, completion: {
+                
+                self.removeActivityIndicator()
+
+                })
+        }
+
+        
     }
     
 
