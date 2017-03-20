@@ -124,6 +124,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
 
         tesseract?.image = image
         tesseract?.rect = rectangle
+        tesseract?.charWhitelist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,."
         tesseract?.recognize()
         
         //array of blocks recognised by tesseract

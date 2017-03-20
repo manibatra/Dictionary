@@ -60,7 +60,9 @@ class WordTableViewController: UITableViewController {
 
         // setting the text of the cell
         let block = refinedBlockArray.object(at: indexPath.row) as! G8RecognizedBlock
-        cell.textLabel?.text = block.text
+        
+        //remove unwanted punctuation marks and set the title text
+        cell.textLabel?.text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters)
 
         return cell
     }
