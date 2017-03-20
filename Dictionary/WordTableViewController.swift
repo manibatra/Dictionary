@@ -108,6 +108,15 @@ class WordTableViewController: UITableViewController {
                 self.removeActivityIndicator()
 
                 })
+        } else {
+            
+            //show alert view if an invalid word is selected
+            tableView.cellForRow(at: indexPath)?.isSelected = false
+            let alert = UIAlertController(title: "Invalid Word", message: "The word recognised by Dictionary is invalid", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: {
+                self.removeActivityIndicator()
+            })
         }
 
         
