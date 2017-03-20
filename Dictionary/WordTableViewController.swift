@@ -11,15 +11,24 @@ import UIKit
 class WordTableViewController: UITableViewController {
     
     var blockArray: NSArray!
+    var refinedBlockArray: NSArray!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for block in blockArray {
+        //creating a "refined array" of blocks which have confidence level above 80
+        let tempSet: NSMutableSet! = NSMutableSet.init()
+        for obj in blockArray {
             
-            print(block)
+            let block = obj as! G8RecognizedBlock
+            if (block.confidence > 80) {
+                tempSet.add(block)
+            }
+            
         }
+        
+        refinedBlockArray = tempSet.allObjects as NSArray!
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,23 +46,25 @@ class WordTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return refinedBlockArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+        // setting the text of the cell
+        let block = refinedBlockArray.object(at: indexPath.row) as! G8RecognizedBlock
+        cell.textLabel?.text = block.text
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
