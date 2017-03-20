@@ -46,12 +46,12 @@ class WordTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //creating a "refined array" of blocks which have confidence level above 80
+        //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
             
             let block = obj as! G8RecognizedBlock
-            if (block.confidence > 80) {
+            if (block.confidence > 80 && block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).characters.count > 1) {
                 tempSet.add(block)
             }
             
