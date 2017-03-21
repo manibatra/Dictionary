@@ -137,8 +137,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
 
     }
 
-    
+    /**
+     * Method name: helpMe
+     * Description: shows the how it works screen
+     * Parameters:
+     */
 
+    func helpMe() {
+        
+        self.transition = 1
+        
+        dismiss(animated: true, completion: {
+            self.present(self.pageViewController, animated: true, completion: nil)
+        })
+        
+    }
 
 
     override func viewDidLoad() {
@@ -164,6 +177,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         //create the "how it works" label
         let label = UILabel.init()
+        let help = UITapGestureRecognizer(target: self, action: #selector(self.helpMe))
+        label.addGestureRecognizer(help)
+        label.isUserInteractionEnabled = true
         label.text = "Help"
         label.font = UIFont.init(name: "AppleSDGothicNeo-Light", size: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -176,8 +192,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         overlayView.addGestureRecognizer(tapGesture)
         self.imagePicker.view.addSubview(overlayView)
         
+        //populate the help screen titles
         self.pageTitles = ["Bring into focus the word you want to find the meaning for", "Tap the first character of the word", "Select the word from the list of words presented"]
         
+        //create the page view controller and set it up
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
@@ -258,16 +276,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Parameters: (index: Int) -> PageContentViewController?
      */
 
-    func viewControllerAtIndex(index: Int) -> PageContentViewController? {
-        if ( self.pageTitles.count == 0 || index >= self.pageTitles.count ) {
-            return nil
-        }
+    func viewControllerAtIndex(index: Int) -> PageContentViewController {
         
         //Create a new view controller and pass suitable data
         
         let pageContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageContentViewController") as! PageContentViewController
-        pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as! String
-        pageContentViewController.pageIndex = index
+
+        
+        if ( index >= self.pageTitles.count ) {
+            pageContentViewController.titleText = self.pageTitles.object(at: self.pageTitles.count - 1) as Any? as! String
+            pageContentViewController.pageIndex = self.pageTitles.count - 1
+
+        } else {
+            pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as! String
+            pageContentViewController.pageIndex = index
+        }
+        
+        
         
         return pageContentViewController
     }
