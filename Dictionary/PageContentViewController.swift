@@ -12,11 +12,14 @@ class PageContentViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    var titleText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.titleLabel.text = self.titleText
     }
 
     override func didReceiveMemoryWarning() {
