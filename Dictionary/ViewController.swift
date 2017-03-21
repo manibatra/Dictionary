@@ -178,6 +178,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         self.pageTitles = ["Bring into focus the word you want to find the meaning for", "Tap the first character of the word", "Select the word from the list of words presented"]
         
+        self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
+        self.pageViewController.dataSource = self
+        
+        let startingViewController = self.viewControllerAtIndex(index: 0)
+        let viewControllers = [startingViewController]
+        self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+        
         
         
     }
