@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDataSource {
     
     var imagePicker: UIImagePickerController!     //main camera to take picture of words
     var boxCenter: CGPoint! //location of the registered tap
     var activityIndicator: UIActivityIndicatorView! //activity indicator to placate user when your code is lazy
     var blockArray: NSArray! //array of blocks recognised by tesseract
     var transition: Int  = 0 //flag which is set to transition to the table view
-
+    
+    var pageViewController: UIPageViewController! //the page view controller that we will present for help screen
+    var pageTitles: NSArray! //array of titles for help screen
+    var pageImages: NSArray! //images for the help screen
     
     
     /**
@@ -173,6 +176,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         overlayView.addGestureRecognizer(tapGesture)
         self.imagePicker.view.addSubview(overlayView)
         
+        self.pageTitles = ["Bring into focus the word you want to find the meaning for", "Tap the first character of the word", "Select the word from the list of words presented"]
+        
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -200,6 +207,62 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Page View Controller Data Source
+    
+     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! PageContentViewController).pageIndex
+        
+        if ((index == 0) || (index == NSNotFound)) {
+            return nil
+        }
+        
+        index = index! - 1
+        return self.viewControllerAtIndex(index: index!)
+    }
+    
+     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! PageContentViewController).pageIndex
+        
+        if (index == NSNotFound) {
+            return nil
+        }
+        
+        index = index! + 1
+        if (index == self.pageTitles.count) {
+            return nil
+        }
+        
+        return self.viewControllerAtIndex(index: index!)
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.pageTitles.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    /**
+     * Method name: viewControllerAtIndex
+     * Description: creates and returns pageviewcontentcontroller for a given index
+     * Parameters: (index: Int) -> PageContentViewController?
+     */
+
+    func viewControllerAtIndex(index: Int) -> PageContentViewController? {
+        if ( self.pageTitles.count == 0 || index >= self.pageTitles.count ) {
+            return nil
+        }
+        
+        //Create a new view controller and pass suitable data
+        
+        let pageContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageContentViewController") as! PageContentViewController
+        pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as! String
+        pageContentViewController.pageIndex = index
+        
+        return pageContentViewController
     }
 
 

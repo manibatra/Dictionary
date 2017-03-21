@@ -12,7 +12,8 @@ class PageContentViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    var titleText: String!
+    var titleText: String! //stores the tile of the current page
+    var pageIndex: Int! //stores the current page number
     
     override func viewDidLoad() {
         super.viewDidLoad()
