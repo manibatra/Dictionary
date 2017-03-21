@@ -10,6 +10,9 @@ import UIKit
 
 class PageContentViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
