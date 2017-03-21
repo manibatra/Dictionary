@@ -22,6 +22,16 @@ class PageContentViewController: UIViewController {
         
         self.titleLabel.text = self.titleText
     }
+    
+    /**
+     * Method name: dismiss
+     * Description: method to dismiss the how it works screen
+     * Parameters:
+     */
+
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
