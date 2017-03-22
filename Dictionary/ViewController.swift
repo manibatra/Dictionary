@@ -204,6 +204,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         let viewControllers = [startingViewController]
         self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
         
+        if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+            // app already launched
+        }
+        else {
+            // This is the first launch ever
+            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+            UserDefaults.standard.synchronize()
+            self.transition = -1
+        }
+        
         
         
     }
@@ -214,6 +224,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
             self.present(self.imagePicker,
                          animated: false,
                          completion: nil )
+        } else if(self.transition == -1) {
+            self.present(self.pageViewController, animated: false, completion: {
+                self.transition = 0
+            })
         } else {
             self.transition = 0
         }
