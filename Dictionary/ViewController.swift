@@ -147,8 +147,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         self.transition = 1
         
-        dismiss(animated: true, completion: {
-            self.present(self.pageViewController, animated: true, completion: nil)
+        dismiss(animated: false, completion: {
+            self.present(self.pageViewController, animated: false, completion: nil)
         })
         
     }

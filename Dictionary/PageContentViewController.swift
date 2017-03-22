@@ -34,7 +34,7 @@ class PageContentViewController: UIViewController {
      */
 
     @IBAction func dismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
