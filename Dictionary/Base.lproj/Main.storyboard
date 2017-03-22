@@ -115,7 +115,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-y4-zad">
                                 <rect key="frame" x="16" y="79" width="343" height="23"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="19"/>
                                 <color key="textColor" red="1" green="0.98823529409999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -134,6 +134,10 @@
                                     <action selector="dismiss:" destination="GPu-bM-Ovm" eventType="touchUpInside" id="tgX-ID-ohL"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-BM-Piq">
+                                <rect key="frame" x="168" y="630" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -150,6 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="i8M-QC-So3" id="b2C-hT-boj"/>
+                        <outlet property="pageControl" destination="lb3-BM-Piq" id="Q92-F5-NKb"/>
                         <outlet property="titleLabel" destination="QNM-y4-zad" id="gVZ-NM-dFH"/>
                     </connections>
                 </viewController>

@@ -181,7 +181,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         label.addGestureRecognizer(help)
         label.isUserInteractionEnabled = true
         label.text = "Help"
-        label.font = UIFont.init(name: "AppleSDGothicNeo-Light", size: 25)
+        label.font = UIFont.init(name: "AppleSDGothicNeo-Bold", size: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         overlayView.addSubview(label)
         label.textColor = UIColor.white

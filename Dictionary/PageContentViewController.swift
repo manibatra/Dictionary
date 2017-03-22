@@ -10,6 +10,7 @@ import UIKit
 
 class PageContentViewController: UIViewController {
 
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     var titleText: String! //stores the tile of the current page
@@ -23,6 +24,7 @@ class PageContentViewController: UIViewController {
         
         self.titleLabel.text = self.titleText
         self.backgroundImageView.image = UIImage.init(named: self.imageName)
+        self.pageControl.currentPage = self.pageIndex
     }
     
     /**
