@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		604B1F711E73A86200489ECF /* Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		604B1F711E73A86200489ECF /* Lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604B1F741E73A86200489ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604B1F761E73A86200489ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		604B1F791E73A86200489ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		604B1F721E73A86200489ECF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				604B1F711E73A86200489ECF /* Dictionary.app */,
+				604B1F711E73A86200489ECF /* Lookie.app */,
 				604B1F851E73A86300489ECF /* DictionaryTests.xctest */,
 				604B1F901E73A86300489ECF /* DictionaryUITests.xctest */,
 			);
@@ -167,9 +167,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		604B1F701E73A86200489ECF /* Dictionary */ = {
+		604B1F701E73A86200489ECF /* Lookie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 604B1F991E73A86300489ECF /* Build configuration list for PBXNativeTarget "Dictionary" */;
+			buildConfigurationList = 604B1F991E73A86300489ECF /* Build configuration list for PBXNativeTarget "Lookie" */;
 			buildPhases = (
 				74E63B9AA50A1E57FC6A3192 /* [CP] Check Pods Manifest.lock */,
 				604B1F6D1E73A86200489ECF /* Sources */,
@@ -182,9 +182,9 @@
 			);
 			dependencies = (
 			);
-			name = Dictionary;
+			name = Lookie;
 			productName = Dictionary;
-			productReference = 604B1F711E73A86200489ECF /* Dictionary.app */;
+			productReference = 604B1F711E73A86200489ECF /* Lookie.app */;
 			productType = "com.apple.product-type.application";
 		};
 		604B1F841E73A86300489ECF /* DictionaryTests */ = {
@@ -266,7 +266,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				604B1F701E73A86200489ECF /* Dictionary */,
+				604B1F701E73A86200489ECF /* Lookie */,
 				604B1F841E73A86300489ECF /* DictionaryTests */,
 				604B1F8F1E73A86300489ECF /* DictionaryUITests */,
 			);
@@ -382,12 +382,12 @@
 /* Begin PBXTargetDependency section */
 		604B1F871E73A86300489ECF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 604B1F701E73A86200489ECF /* Dictionary */;
+			target = 604B1F701E73A86200489ECF /* Lookie */;
 			targetProxy = 604B1F861E73A86300489ECF /* PBXContainerItemProxy */;
 		};
 		604B1F921E73A86300489ECF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 604B1F701E73A86200489ECF /* Dictionary */;
+			target = 604B1F701E73A86200489ECF /* Lookie */;
 			targetProxy = 604B1F911E73A86300489ECF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -608,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		604B1F991E73A86300489ECF /* Build configuration list for PBXNativeTarget "Dictionary" */ = {
+		604B1F991E73A86300489ECF /* Build configuration list for PBXNativeTarget "Lookie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				604B1F9A1E73A86300489ECF /* Debug */,

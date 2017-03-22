@@ -139,7 +139,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.29803921568627451" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HPc-nJ-lfI" firstAttribute="top" secondItem="w4d-vI-Jbk" secondAttribute="topMargin" constant="28" id="Icf-QM-3gg"/>
                             <constraint firstItem="HPc-nJ-lfI" firstAttribute="trailing" secondItem="w4d-vI-Jbk" secondAttribute="trailingMargin" id="JmG-os-Dbj"/>
