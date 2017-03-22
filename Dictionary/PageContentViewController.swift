@@ -13,6 +13,7 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     var titleText: String! //stores the tile of the current page
+    var imageName: String! //stores the name of the image belonging to the current page
     var pageIndex: Int! //stores the current page number
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class PageContentViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.titleLabel.text = self.titleText
+        self.backgroundImageView.image = UIImage.init(named: self.imageName)
     }
     
     /**

@@ -193,7 +193,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         self.imagePicker.view.addSubview(overlayView)
         
         //populate the help screen titles
-        self.pageTitles = ["Bring into focus the word you want to find the meaning for", "Tap the first character of the word", "Select the word from the list of words presented"]
+        self.pageTitles = ["Tap the first character of the word", "Select from the recognised words", "Get smarter"]
+        self.pageImages = [ "help_screen_1", "help_screen_2", "help_screen_3"]
         
         //create the page view controller and set it up
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
@@ -284,11 +285,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
 
         
         if ( index >= self.pageTitles.count ) {
-            pageContentViewController.titleText = self.pageTitles.object(at: self.pageTitles.count - 1) as Any? as! String
+            pageContentViewController.titleText = self.pageTitles.object(at: self.pageTitles.count - 1) as Any? as? String
+            pageContentViewController.imageName = self.pageImages.object(at: self.pageImages.count - 1) as Any? as? String
             pageContentViewController.pageIndex = self.pageTitles.count - 1
 
         } else {
-            pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as! String
+            pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as? String
+            pageContentViewController.imageName = self.pageImages.object(at: index) as Any? as? String
             pageContentViewController.pageIndex = index
         }
         
