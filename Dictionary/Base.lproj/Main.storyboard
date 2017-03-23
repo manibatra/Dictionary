@@ -37,7 +37,7 @@
         <!--View Controller-->
         <scene sceneID="TpW-0A-252">
             <objects>
-                <viewController id="1Qy-8j-KbR" customClass="ViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1Qy-8j-KbR" customClass="ViewController" customModule="Lookie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffg-X1-JUA"/>
                         <viewControllerLayoutGuide type="bottom" id="chG-lS-axY"/>
@@ -59,7 +59,7 @@
         <!--Word Table View Controller-->
         <scene sceneID="vXG-0u-dIS">
             <objects>
-                <tableViewController id="YFr-vg-0BZ" customClass="WordTableViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="YFr-vg-0BZ" customClass="WordTableViewController" customModule="Lookie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="oxu-o8-SEh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
         <!--Page Content View Controller-->
         <scene sceneID="yPi-Wh-Gad">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" id="GPu-bM-Ovm" customClass="PageContentViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="GPu-bM-Ovm" customClass="PageContentViewController" customModule="Lookie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iML-YR-a8a"/>
                         <viewControllerLayoutGuide type="bottom" id="HaY-t6-Fzv"/>
@@ -134,9 +134,10 @@
                                     <action selector="dismiss:" destination="GPu-bM-Ovm" eventType="touchUpInside" id="tgX-ID-ohL"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-BM-Piq">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-BM-Piq">
                                 <rect key="frame" x="168" y="630" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="0.32665346746575341" colorSpace="deviceWhite"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.29803921568627451" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
