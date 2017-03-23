@@ -146,7 +146,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     func helpMe() {
         
         self.transition = 1
+        let startingViewController = self.viewControllerAtIndex(index: 0)
+        let viewControllers = [startingViewController]
+        self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
         
+
         dismiss(animated: false, completion: {
             self.present(self.pageViewController, animated: false, completion: nil)
         })
@@ -200,11 +204,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
-        let startingViewController = self.viewControllerAtIndex(index: 0)
-        let viewControllers = [startingViewController]
-        self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
-        
-        if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+               if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
             // app already launched
         }
         else {
@@ -225,6 +225,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
                          animated: false,
                          completion: nil )
         } else if(self.transition == -1) {
+            
+            let startingViewController = self.viewControllerAtIndex(index: 0)
+            let viewControllers = [startingViewController]
+            self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+            
+
             self.present(self.pageViewController, animated: false, completion: {
                 self.transition = 0
             })
