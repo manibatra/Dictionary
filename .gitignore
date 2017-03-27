@@ -70,4 +70,5 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+opencv2.framework
 # End of https://www.gitignore.io/api/swift

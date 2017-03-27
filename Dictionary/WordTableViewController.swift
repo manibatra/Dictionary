@@ -40,24 +40,25 @@ class WordTableViewController: UITableViewController {
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
-            
             let block = obj as! G8RecognizedBlock
-            if (block.confidence > 80 && block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).characters.count > 1) {
-                tempSet.add(block)
+            //print(" the confidence for thw word \(block.text!) is \(block.confidence)  \n")
+            if (block.confidence > 75 && block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).characters.count > 2  ) {
+                tempSet.add(block.text)
             }
             
         }
         
-        refinedBlockArray = tempSet.allObjects as NSArray!
+        //sorting the array in descinging order of lenght of recongnised words
+        refinedBlockArray =  tempSet.sorted(by: {
+            ($0 as! String).characters.count > ($1 as! String).characters.count
+        }) as NSArray!
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -89,10 +90,10 @@ class WordTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
         // setting the text of the cell
-        let block = refinedBlockArray.object(at: indexPath.row) as! G8RecognizedBlock
+        let text = refinedBlockArray.object(at: indexPath.row) as! String
         
         //remove unwanted punctuation marks and set the title text
-        cell.textLabel?.text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+        cell.textLabel?.text = text.trimmingCharacters(in: CharacterSet.punctuationCharacters)
         
         return cell
     }

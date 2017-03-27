@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDataSource {
     
@@ -125,13 +127,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         let tesseract = G8Tesseract.init(language: "eng")
 
-        tesseract?.image = image
+        tesseract?.image = image.g8_blackAndWhite()
         tesseract?.rect = rectangle
         tesseract?.charWhitelist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,."
         tesseract?.recognize()
         
         //array of blocks recognised by tesseract
         self.blockArray = tesseract?.recognizedBlocks(by: .word) as NSArray!
+       // print(self.blockArray)
         
         removeActivityIndicator()
 
@@ -359,7 +362,9 @@ extension ViewController: UIImagePickerControllerDelegate {
 
         //perform image recognition and dismiss view controller
         dismiss(animated: true, completion: {
-            self.performWordRecognition(image: scaledImage, rectangle: rectangle)
+            
+            let processedImage = OpenCVWrapper.processImage(withOpenCV: scaledImage)
+            self.performWordRecognition(image: processedImage!, rectangle: rectangle)
             self.performSegue(withIdentifier: "recognisedWords", sender: nil)
         })
     }

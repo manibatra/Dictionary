@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60381AA51E87E9A3001E3D37 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60381AA41E87E9A3001E3D37 /* UIImage+OpenCV.mm */; };
+		60381AA91E87EAA1001E3D37 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60381AA81E87EAA1001E3D37 /* OpenCVWrapper.mm */; };
 		604B1F751E73A86200489ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F741E73A86200489ECF /* AppDelegate.swift */; };
 		604B1F771E73A86200489ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F761E73A86200489ECF /* ViewController.swift */; };
 		604B1F7A1E73A86200489ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604B1F781E73A86200489ECF /* Main.storyboard */; };
@@ -15,6 +17,11 @@
 		604B1F8A1E73A86300489ECF /* DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F891E73A86300489ECF /* DictionaryTests.swift */; };
 		604B1F951E73A86300489ECF /* DictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604B1F941E73A86300489ECF /* DictionaryUITests.swift */; };
 		604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 604B1FA21E7648BB00489ECF /* libz.1.dylib */; };
+		60574E491E87F20E000F03EB /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60574E481E87F20E000F03EB /* opencv2.framework */; };
+		60574E4B1E87F3B5000F03EB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60574E4A1E87F3B5000F03EB /* AssetsLibrary.framework */; };
+		60574E4D1E87F3BD000F03EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60574E4C1E87F3BD000F03EB /* AVFoundation.framework */; };
+		60574E4F1E87F421000F03EB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60574E4E1E87F421000F03EB /* CoreImage.framework */; };
+		60574E511E87F42B000F03EB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60574E501E87F42B000F03EB /* CoreMedia.framework */; };
 		60C878F11E7652AD009F5E64 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 60C878F01E7652AD009F5E64 /* tessdata */; };
 		60C878F31E765CE8009F5E64 /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C878F21E765CE8009F5E64 /* WordTableViewController.swift */; };
 		60EC1FD91E8129B1002A141B /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC1FD81E8129B1002A141B /* PageContentViewController.swift */; };
@@ -39,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60381AA41E87E9A3001E3D37 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		60381AA61E87E9BE001E3D37 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		60381AA71E87EA89001E3D37 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		60381AA81E87EAA1001E3D37 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		604B1F711E73A86200489ECF /* Lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604B1F741E73A86200489ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604B1F761E73A86200489ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +65,11 @@
 		604B1F961E73A86300489ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		604B1FA21E7648BB00489ECF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		604B1FA71E764CF800489ECF /* Dictionary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dictionary-Bridging-Header.h"; sourceTree = "<group>"; };
+		60574E481E87F20E000F03EB /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		60574E4A1E87F3B5000F03EB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		60574E4C1E87F3BD000F03EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		60574E4E1E87F421000F03EB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		60574E501E87F42B000F03EB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		60C878F01E7652AD009F5E64 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		60C878F21E765CE8009F5E64 /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		60EC1FD81E8129B1002A141B /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +83,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60574E511E87F42B000F03EB /* CoreMedia.framework in Frameworks */,
+				60574E4F1E87F421000F03EB /* CoreImage.framework in Frameworks */,
+				60574E4D1E87F3BD000F03EB /* AVFoundation.framework in Frameworks */,
+				60574E4B1E87F3B5000F03EB /* AssetsLibrary.framework in Frameworks */,
+				60574E491E87F20E000F03EB /* opencv2.framework in Frameworks */,
 				604B1FA31E7648BB00489ECF /* libz.1.dylib in Frameworks */,
 				F6FC94F54475793289D4DCE4 /* libPods-Dictionary.a in Frameworks */,
 			);
@@ -133,6 +154,10 @@
 				604B1F7D1E73A86300489ECF /* LaunchScreen.storyboard */,
 				604B1F801E73A86300489ECF /* Info.plist */,
 				604B1FA71E764CF800489ECF /* Dictionary-Bridging-Header.h */,
+				60381AA61E87E9BE001E3D37 /* UIImage+OpenCV.h */,
+				60381AA41E87E9A3001E3D37 /* UIImage+OpenCV.mm */,
+				60381AA71E87EA89001E3D37 /* OpenCVWrapper.h */,
+				60381AA81E87EAA1001E3D37 /* OpenCVWrapper.mm */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -158,6 +183,11 @@
 		8DD3F032C826ABEF35F9ADAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60574E501E87F42B000F03EB /* CoreMedia.framework */,
+				60574E4E1E87F421000F03EB /* CoreImage.framework */,
+				60574E4C1E87F3BD000F03EB /* AVFoundation.framework */,
+				60574E4A1E87F3B5000F03EB /* AssetsLibrary.framework */,
+				60574E481E87F20E000F03EB /* opencv2.framework */,
 				604B1FA21E7648BB00489ECF /* libz.1.dylib */,
 				80ACD4D866CD05777EAD0451 /* libPods-Dictionary.a */,
 			);
@@ -355,6 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				604B1F771E73A86200489ECF /* ViewController.swift in Sources */,
+				60381AA51E87E9A3001E3D37 /* UIImage+OpenCV.mm in Sources */,
+				60381AA91E87EAA1001E3D37 /* OpenCVWrapper.mm in Sources */,
 				60EC1FD91E8129B1002A141B /* PageContentViewController.swift in Sources */,
 				60C878F31E765CE8009F5E64 /* WordTableViewController.swift in Sources */,
 				604B1F751E73A86200489ECF /* AppDelegate.swift in Sources */,
@@ -511,6 +543,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CJ266XH7SM;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mani.Dictionary;
@@ -529,6 +565,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CJ266XH7SM;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mani.Dictionary;
