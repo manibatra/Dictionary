@@ -203,7 +203,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         }
         
         //populate the help screen titles
-        self.pageTitles = ["Let the camera focus on the page automatically till the words are clear", "Tap the first character of the word", "Select from the recognised words", "Get smarter"]
+        self.pageTitles = ["Let the camera focus automatically ", "Tap the first character of the word", "Select from the recognised words", "Get smarter"]
         self.pageImages = [ "help_screen_0", "help_screen_1", "help_screen_2", "help_screen_3"]
         
         //create the page view controller and set it up
