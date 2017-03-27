@@ -22,7 +22,7 @@
         <scene sceneID="sa2-oZ-RJe">
             <objects>
                 <navigationController id="20G-HH-BXf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aqv-JB-3DX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqv-JB-3DX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.29803921570000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,7 +115,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i8M-QC-So3">
                                 <rect key="frame" x="59" y="132" width="256" height="502"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="502" id="ufS-Bj-7j9"/>
+                                    <constraint firstAttribute="width" constant="256" id="IRR-qJ-NRo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-y4-zad">
@@ -139,23 +139,27 @@
                                     <action selector="dismiss:" destination="GPu-bM-Ovm" eventType="touchUpInside" id="tgX-ID-ohL"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-BM-Piq">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-BM-Piq">
                                 <rect key="frame" x="168" y="630" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="G9I-K6-AyK"/>
+                                </constraints>
                                 <color key="pageIndicatorTintColor" white="0.0" alpha="0.32665346746575341" colorSpace="deviceWhite"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.29803921568627451" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="lb3-BM-Piq" firstAttribute="centerX" secondItem="i8M-QC-So3" secondAttribute="centerX" id="9Vm-bW-WS2"/>
+                            <constraint firstItem="i8M-QC-So3" firstAttribute="top" secondItem="QNM-y4-zad" secondAttribute="bottom" constant="30" id="CJ5-RC-ym3"/>
                             <constraint firstItem="HPc-nJ-lfI" firstAttribute="top" secondItem="w4d-vI-Jbk" secondAttribute="topMargin" constant="28" id="Icf-QM-3gg"/>
+                            <constraint firstItem="i8M-QC-So3" firstAttribute="centerX" secondItem="w4d-vI-Jbk" secondAttribute="centerX" id="Ijk-rI-IrR"/>
                             <constraint firstItem="HPc-nJ-lfI" firstAttribute="trailing" secondItem="w4d-vI-Jbk" secondAttribute="trailingMargin" id="JmG-os-Dbj"/>
                             <constraint firstItem="HPc-nJ-lfI" firstAttribute="top" secondItem="iML-YR-a8a" secondAttribute="bottom" constant="8" symbolic="YES" id="Lg9-al-lOj"/>
                             <constraint firstItem="QNM-y4-zad" firstAttribute="top" secondItem="HPc-nJ-lfI" secondAttribute="bottom" constant="25" id="UuE-9l-ISM"/>
                             <constraint firstItem="HaY-t6-Fzv" firstAttribute="top" secondItem="i8M-QC-So3" secondAttribute="bottom" constant="33" id="XIP-IV-3Wd"/>
-                            <constraint firstItem="i8M-QC-So3" firstAttribute="leading" secondItem="w4d-vI-Jbk" secondAttribute="leadingMargin" constant="43" id="iSp-cE-diP"/>
+                            <constraint firstItem="HaY-t6-Fzv" firstAttribute="top" secondItem="lb3-BM-Piq" secondAttribute="bottom" id="dyS-x8-TEP"/>
                             <constraint firstItem="QNM-y4-zad" firstAttribute="leading" secondItem="w4d-vI-Jbk" secondAttribute="leadingMargin" id="jTZ-nT-Pxe"/>
                             <constraint firstItem="QNM-y4-zad" firstAttribute="trailing" secondItem="w4d-vI-Jbk" secondAttribute="trailingMargin" id="nWY-Ap-1eO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="i8M-QC-So3" secondAttribute="trailing" constant="44" id="wa1-So-TLK"/>
                         </constraints>
                     </view>
                     <connections>

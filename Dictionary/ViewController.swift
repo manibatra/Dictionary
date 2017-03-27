@@ -34,7 +34,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
             
             
             self.boxCenter = sender.location(in: self.imagePicker.view)
-//            NSLog("hello from : \(boxCenter.x) \(boxCenter.y)")
+            //            NSLog("hello from : \(boxCenter.x) \(boxCenter.y)")
             self.imagePicker.takePicture()
             
         }
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Description: shows the activity indicator in the view
      * Parameters:
      */
-
+    
     func addActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(frame: view.bounds)
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Description: removes the activity indicator from the view
      * Parameters:
      */
-
+    
     func removeActivityIndicator() {
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Description: translates the image picker preview window to the size of the phone screen
      * Parameters:
      */
-
+    
     func translateScreen() {
         let screenSize = UIScreen.main.bounds.size
         let ratio: CGFloat = 4.0 / 3.0
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Description: helper method to scale image to be used by tesserect
      * Parameters: (image: UIImage, maxDimension: CGFloat) -> UIImage
      */
-
+    
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
         
         var scaledSize = CGSize(width: maxDimension, height: maxDimension)
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     func performWordRecognition(image: UIImage, rectangle: CGRect) {
         
         let tesseract = G8Tesseract.init(language: "eng")
-
+        
         tesseract?.image = image.g8_blackAndWhite()
         tesseract?.rect = rectangle
         tesseract?.charWhitelist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,."
@@ -134,18 +134,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         //array of blocks recognised by tesseract
         self.blockArray = tesseract?.recognizedBlocks(by: .word) as NSArray!
-       // print(self.blockArray)
+        // print(self.blockArray)
         
         removeActivityIndicator()
-
+        
     }
-
+    
     /**
      * Method name: helpMe
      * Description: shows the how it works screen
      * Parameters:
      */
-
+    
     func helpMe() {
         
         self.transition = 1
@@ -153,51 +153,54 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         let viewControllers = [startingViewController]
         self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
         
-
+        
         dismiss(animated: false, completion: {
             self.present(self.pageViewController, animated: false, completion: nil)
         })
         
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.imagePicker = UIImagePickerController()
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = .camera
-        self.imagePicker.showsCameraControls = false
         
-        
-        translateScreen()
-        
-        //creating a tap gesture
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapLocation(sender:)))
-        tapGesture.delegate = self
-        
-        //creating an overlay view and adding it as a subview to the image picker
-        let overlayView = UIView.init(frame: self.view.frame)
-        overlayView.isOpaque = false
-        overlayView.isUserInteractionEnabled = true
-        overlayView.backgroundColor = UIColor.clear
-        
-        //create the "how it works" label
-        let label = UILabel.init()
-        let help = UITapGestureRecognizer(target: self, action: #selector(self.helpMe))
-        label.addGestureRecognizer(help)
-        label.isUserInteractionEnabled = true
-        label.text = "Help"
-        label.font = UIFont.init(name: "AppleSDGothicNeo-Bold", size: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        overlayView.addSubview(label)
-        label.textColor = UIColor.white
-        label.topAnchor.constraint(equalTo: overlayView.topAnchor, constant: 20).isActive = true
-        overlayView.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 20).isActive = true
-        
-        
-        overlayView.addGestureRecognizer(tapGesture)
-        self.imagePicker.view.addSubview(overlayView)
+        if( UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            self.imagePicker = UIImagePickerController()
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.showsCameraControls = false
+            
+            
+            translateScreen()
+            
+            //creating a tap gesture
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapLocation(sender:)))
+            tapGesture.delegate = self
+            
+            //creating an overlay view and adding it as a subview to the image picker
+            let overlayView = UIView.init(frame: self.view.frame)
+            overlayView.isOpaque = false
+            overlayView.isUserInteractionEnabled = true
+            overlayView.backgroundColor = UIColor.clear
+            
+            //create the "how it works" label
+            let label = UILabel.init()
+            let help = UITapGestureRecognizer(target: self, action: #selector(self.helpMe))
+            label.addGestureRecognizer(help)
+            label.isUserInteractionEnabled = true
+            label.text = "Help"
+            label.font = UIFont.init(name: "AppleSDGothicNeo-Bold", size: 25)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            overlayView.addSubview(label)
+            label.textColor = UIColor.white
+            label.topAnchor.constraint(equalTo: overlayView.topAnchor, constant: 20).isActive = true
+            overlayView.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 20).isActive = true
+            
+            
+            overlayView.addGestureRecognizer(tapGesture)
+            self.imagePicker.view.addSubview(overlayView)
+        }
         
         //populate the help screen titles
         self.pageTitles = ["Let the camera focus on the page automatically till the words are clear", "Tap the first character of the word", "Select from the recognised words", "Get smarter"]
@@ -207,7 +210,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
-               if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+        if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
             // app already launched
         }
         else {
@@ -233,7 +236,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
             let viewControllers = [startingViewController]
             self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
             
-
+            
             self.present(self.pageViewController, animated: false, completion: {
                 self.transition = 0
             })
@@ -243,12 +246,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
     }
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "recognisedWords") {
             let wordTableViewController = segue.destination as! WordTableViewController
             wordTableViewController.blockArray = self.blockArray
-
+            
         }
     }
     
@@ -260,7 +263,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
     
     // MARK: - Page View Controller Data Source
     
-     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! PageContentViewController).pageIndex
         
         if ((index == 0) || (index == NSNotFound)) {
@@ -271,7 +274,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         return self.viewControllerAtIndex(index: index!)
     }
     
-     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! PageContentViewController).pageIndex
         
         if (index == NSNotFound) {
@@ -299,19 +302,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
      * Description: creates and returns pageviewcontentcontroller for a given index
      * Parameters: (index: Int) -> PageContentViewController?
      */
-
+    
     func viewControllerAtIndex(index: Int) -> PageContentViewController {
         
         //Create a new view controller and pass suitable data
         
         let pageContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageContentViewController") as! PageContentViewController
-
+        
         
         if ( index >= self.pageTitles.count ) {
             pageContentViewController.titleText = self.pageTitles.object(at: self.pageTitles.count - 1) as Any? as? String
             pageContentViewController.imageName = self.pageImages.object(at: self.pageImages.count - 1) as Any? as? String
             pageContentViewController.pageIndex = self.pageTitles.count - 1
-
+            
         } else {
             pageContentViewController.titleText = self.pageTitles.object(at: index) as Any? as? String
             pageContentViewController.imageName = self.pageImages.object(at: index) as Any? as? String
@@ -322,8 +325,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIGestur
         
         return pageContentViewController
     }
-
-
+    
+    
 }
 
 
@@ -340,7 +343,7 @@ extension ViewController: UIImagePickerControllerDelegate {
      * Description: function called when the picutre is taken
      * Parameters: picker: UIImagePickerController,info: [String : Any]
      */
-
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -359,7 +362,7 @@ extension ViewController: UIImagePickerControllerDelegate {
         //the box representing the area to be used for OCR by tesseract
         let rectangle = CGRect.init(x: imagePoint.x - 100, y: imagePoint.y - 100, width: 350, height: 200)
         self.transition = 1
-
+        
         //perform image recognition and dismiss view controller
         dismiss(animated: true, completion: {
             
