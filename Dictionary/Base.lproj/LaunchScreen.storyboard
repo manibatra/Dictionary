@@ -22,17 +22,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="sUS-sX-agu">
-                                <rect key="frame" x="142" y="278" width="90" height="110"/>
+                                <rect key="frame" x="143" y="181" width="90" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="SUp-qT-RD4"/>
                                     <constraint firstAttribute="width" constant="90" id="sxY-Bx-Ptl"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOOKIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-eO-Dal">
+                                <rect key="frame" x="135" y="321" width="105" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="2Oq-5x-88k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.29803921570000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sUS-sX-agu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Sm-LN-2tP"/>
-                            <constraint firstItem="sUS-sX-agu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="YgB-oD-Pah"/>
+                            <constraint firstItem="sUS-sX-agu" firstAttribute="centerX" secondItem="UUE-eO-Dal" secondAttribute="centerX" id="6mt-yA-cva"/>
+                            <constraint firstItem="sUS-sX-agu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YMr-Lz-WJg"/>
+                            <constraint firstItem="sUS-sX-agu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-97.5" id="YgB-oD-Pah"/>
+                            <constraint firstItem="UUE-eO-Dal" firstAttribute="top" secondItem="sUS-sX-agu" secondAttribute="bottom" constant="30" id="h1y-y7-u2V"/>
                         </constraints>
                     </view>
                 </viewController>
