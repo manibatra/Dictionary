@@ -40,10 +40,10 @@ class WordTableViewController: UITableViewController {
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
@@ -60,6 +60,22 @@ class WordTableViewController: UITableViewController {
             ($0 as! String).characters.count > ($1 as! String).characters.count
         }) as NSArray!
         
+        
+        //display an alert in case no words are detected
+        if(refinedBlockArray.count == 0) {
+            let alert = UIAlertController(title: "Patience Is A Virtue",
+                                message: "\nMake sure the word is in focus/clear before tapping\n\nMake sure the light is even\n\nWorks best on books with black letters on a white background\n\nWorks best when device is parallel to the book",
+                                preferredStyle: .alert)
+            
+            let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: {
+                (result : UIAlertAction) -> Void in
+                
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+            
+            alert.addAction(tryAgainAction)
+            self.present(alert, animated: true, completion: nil)
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
