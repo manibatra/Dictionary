@@ -8,6 +8,11 @@
 
 import UIKit
 
+var myWords = [[String]]()
+
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -16,6 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        var i = 0
+        
+        for char in "abcdefghijklmnopqrstuvwxyz".characters  {
+            if let path = Bundle.main.path(forResource: String(char), ofType: "txt") {
+                do {
+                    let data = try String(contentsOfFile: path, encoding: .utf8)
+                    myWords.append(data.components(separatedBy: .newlines))
+                    print(myWords[i])
+                    i = i + 1
+                } catch {
+                    print(error)
+                }
+            }
+            
+        }
+
         return true
     }
     

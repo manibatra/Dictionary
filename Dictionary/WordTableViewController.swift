@@ -41,16 +41,91 @@ class WordTableViewController: UITableViewController {
         activityIndicator = nil
     }
     
+    func isValid(word: String) -> Bool {
+        
+        let checker = UITextChecker()
+        let valid = checker.rangeOfMisspelledWord(in: word, range: NSMakeRange(0, word.characters.count), startingAt: 0, wrap: false, language: "en")
+        print(valid.location)
+        return valid.location == NSNotFound
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
+        var dict:[Character:Int] = [
+            "a" : 0,
+            "b" : 1,
+            "c" : 2,
+            "d" : 3,
+            "e" : 4,
+            "f" : 5,
+            "g" : 6,
+            "h" : 7,
+            "i" : 8,
+            "j" : 9,
+            "k" : 10,
+            "l" : 11,
+            "m" : 12,
+            "n" : 13,
+            "o" : 14,
+            "p" : 15,
+            "q" : 16,
+            "r" : 17,
+            "s" : 18,
+            "t" : 19,
+            "u" : 20,
+            "v" : 21,
+            "w" : 22,
+            "x" : 23,
+            "y" : 24,
+            "z" : 25
+        ]
+
+        //        var myStrings: [String]!
+//        if let path = Bundle.main.path(forResource: "words", ofType: "txt") {
+//            do {
+//                let data = try String(contentsOfFile: path, encoding: .utf8)
+//                 myStrings = data.components(separatedBy: .newlines)
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        
+                //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
             let block = obj as! G8RecognizedBlock
-            print("word = \(block.text!) , connfidence = \(block.confidence)  \n")
-            if (block.confidence > 75 && block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).characters.count > 2  ) {
-                tempSet.add(block.text)
+            print("word = \(block.text!) , confidence = \(block.confidence)  \n")
+
+            let text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).lowercased()
+            var valid = false
+            if ( text.characters.count > 2 ) {
+                let firstChar = text.characters.first!
+                
+                
+                if((dict.index(forKey: firstChar)) != nil) {
+                    let location = dict[firstChar]!
+                    
+                    print ("The location for letter is \(location)")
+                    
+                    if(myWords[location].contains(text)) {
+                        
+                        print("\(text) is valid")
+                        valid = true
+                        
+                    } else {
+                        print("\(text) is invalid")
+                    }
+                }
+ 
+            }
+            
+            
+           
+
+            if (valid ) {
+
+                tempSet.add(text)
             }
             
         }
