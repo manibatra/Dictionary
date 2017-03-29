@@ -48,7 +48,7 @@ class WordTableViewController: UITableViewController {
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
             let block = obj as! G8RecognizedBlock
-            //print(" the confidence for thw word \(block.text!) is \(block.confidence)  \n")
+            print("word = \(block.text!) , connfidence = \(block.confidence)  \n")
             if (block.confidence > 75 && block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).characters.count > 2  ) {
                 tempSet.add(block.text)
             }
