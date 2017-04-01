@@ -41,17 +41,11 @@ class WordTableViewController: UITableViewController {
         activityIndicator = nil
     }
     
-    func isValid(word: String) -> Bool {
-        
-        let checker = UITextChecker()
-        let valid = checker.rangeOfMisspelledWord(in: word, range: NSMakeRange(0, word.characters.count), startingAt: 0, wrap: false, language: "en")
-        print(valid.location)
-        return valid.location == NSNotFound
-    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //a dictionary containing letter to number translation
         var dict:[Character:Int] = [
             "a" : 0,
             "b" : 1,
@@ -80,51 +74,34 @@ class WordTableViewController: UITableViewController {
             "y" : 24,
             "z" : 25
         ]
-
-        //        var myStrings: [String]!
-//        if let path = Bundle.main.path(forResource: "words", ofType: "txt") {
-//            do {
-//                let data = try String(contentsOfFile: path, encoding: .utf8)
-//                 myStrings = data.components(separatedBy: .newlines)
-//            } catch {
-//                print(error)
-//            }
-//        }
-//        
-                //creating a "refined array" of blocks which have confidence level above 80 and preprocessing
+        
+        
+        //creating an array of valid words
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
             let block = obj as! G8RecognizedBlock
             print("word = \(block.text!) , confidence = \(block.confidence)  \n")
-
+            
             let text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).lowercased()
-            var valid = false
+            var isValid = false  //indicates if the world is present in the list
             if ( text.characters.count > 2 ) {
                 let firstChar = text.characters.first!
                 
-                
                 if((dict.index(forKey: firstChar)) != nil) {
-                    let location = dict[firstChar]!
+                    let location = dict[firstChar]! //translating to number
                     
-                    print ("The location for letter is \(location)")
-                    
+                    //checking if the word is present in the list
                     if(myWords[location].contains(text)) {
                         
-                        print("\(text) is valid")
-                        valid = true
+                        isValid = true
                         
-                    } else {
-                        print("\(text) is invalid")
                     }
                 }
- 
+                
             }
             
-            
-           
-
-            if (valid ) {
-
+            if (isValid) {
+                
                 tempSet.add(text)
             }
             
@@ -139,8 +116,8 @@ class WordTableViewController: UITableViewController {
         //display an alert in case no words are detected
         if(refinedBlockArray.count == 0) {
             let alert = UIAlertController(title: "Patience Is A Virtue",
-                                message: "\nMake sure the word is in focus/clear before tapping\n\nMake sure the light is even\n\nWorks best on books with black letters on a white background\n\nWorks best when device is parallel to the book",
-                                preferredStyle: .alert)
+                                          message: "\nMake sure the word is in focus/clear before tapping\n\nMake sure the light is even\n\nWorks best on books with black letters on a white background\n\nWorks best when device is parallel to the book",
+                                          preferredStyle: .alert)
             
             let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: {
                 (result : UIAlertAction) -> Void in
@@ -184,8 +161,7 @@ class WordTableViewController: UITableViewController {
         let text = refinedBlockArray.object(at: indexPath.row) as! String
         
         //remove unwanted punctuation marks and set the title text
-        cell.textLabel?.text = text.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-        
+        cell.textLabel?.text = text        
         return cell
     }
     
