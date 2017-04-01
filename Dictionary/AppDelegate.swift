@@ -24,22 +24,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DispatchQueue.global(qos: .background).async {
             
-            var i = 0
-            
-            for char in "abcdefghijklmnopqrstuvwxyz".characters  {
-                if let path = Bundle.main.path(forResource: String(char), ofType: "txt") {
-                    do {
-                        let data = try String(contentsOfFile: path, encoding: .utf8)
-                        myWords.append(data.components(separatedBy: .newlines))
-                       // print(myWords[i])
-                        i = i + 1
-                    } catch {
-                        print(error)
+            //retrieving the already stored list
+            if let retrievedList = UserDefaults.standard.value(forKey: "wordList") {
+                myWords = retrievedList as! [[String]]
+            } else {
+                
+                //building the dictionary for the first time
+                var i = 0
+                
+                for char in "abcdefghijklmnopqrstuvwxyz".characters  {
+                    if let path = Bundle.main.path(forResource: String(char), ofType: "txt") {
+                        do {
+                            let data = try String(contentsOfFile: path, encoding: .utf8)
+                            myWords.append(data.components(separatedBy: .newlines))
+                            // print(myWords[i])
+                            i = i + 1
+                        } catch {
+                            //print(error)
+                        }
                     }
+                    
                 }
                 
+                //storing the dictionary
+                UserDefaults.standard.set(myWords, forKey: "wordList")
+                
             }
-
+            
             
         }
         
