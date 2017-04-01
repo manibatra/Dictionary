@@ -80,7 +80,7 @@ class WordTableViewController: UITableViewController {
         let tempSet: NSMutableSet! = NSMutableSet.init()
         for obj in blockArray {
             let block = obj as! G8RecognizedBlock
-            print("word = \(block.text!) , confidence = \(block.confidence)  \n")
+            //print("word = \(block.text!) , confidence = \(block.confidence)  \n")
             
             let text = block.text.trimmingCharacters(in: CharacterSet.punctuationCharacters).lowercased()
             var isValid = false  //indicates if the world is present in the list
